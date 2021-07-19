@@ -12,7 +12,7 @@ class FoodItems extends Component {
     const {isClicked, activeCount} = this.state
     const {foodItems} = this.props
     Object.assign(foodItems, {activeCount})
-    console.log(foodItems)
+    // console.log(foodItems)
     this.setState({isClicked: !isClicked, itemId: foodItems.id})
     oldItem.push(foodItems)
     localStorage.setItem('cartData', JSON.stringify(oldItem))
@@ -20,25 +20,23 @@ class FoodItems extends Component {
 
   clickMinus = () => {
     const {activeCount} = this.state
-    const {foodItems} = this.props
+
     // console.log(foodItems.id)
     if (activeCount > 1) {
       this.setState(prevState => ({
         activeCount: prevState.activeCount - 1,
-        itemId: foodItems.id,
       }))
     } else if (activeCount < 1) {
       this.setState({activeCount: 1})
     }
-    console.log(activeCount)
+    // console.log(activeCount)
   }
 
   clickPlus = () => {
     // console.log(data)
-    const {foodItems} = this.props
+
     this.setState(prevState => ({
       activeCount: prevState.activeCount + 1,
-      itemId: foodItems.id,
     }))
   }
 
