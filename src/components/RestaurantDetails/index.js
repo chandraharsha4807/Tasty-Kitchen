@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
+
 import Cookies from 'js-cookie'
 import {FaStar, FaRupeeSign} from 'react-icons/fa'
 
@@ -7,9 +8,21 @@ import './index.css'
 import FoodItems from '../FoodItems'
 import Header from '../Header'
 import Footer from '../Footer'
+import NotFound from '../NotFound'
+
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
 
 class RestaurantDetails extends Component {
-  state = {restaurantData: {}, foodItems: [], isLoading: false}
+  state = {
+    restaurantData: {},
+    apiStatus: apiStatusConstants.initial,
+    foodItems: [],
+  }
 
   componentDidMount() {
     this.getRestaurantItemData()
@@ -19,7 +32,9 @@ class RestaurantDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
-    this.setState({isLoading: true})
+    this.setState({
+      apiStatus: apiStatusConstants.inProgress,
+    })
     const jwtToken = Cookies.get('jwt_token')
     const apiUrl = `https://apis.ccbp.in/restaurants-list/${id}`
     const options = {
@@ -44,10 +59,16 @@ class RestaurantDetails extends Component {
       this.setState({
         restaurantData: fetchedData,
         foodItems: foodItemsData,
-        isLoading: false,
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
       })
     }
   }
+
+  renderFailureView = () => <NotFound />
 
   renderRestaurantItemDetails = () => {
     const {restaurantData, foodItems} = this.state
@@ -103,12 +124,26 @@ class RestaurantDetails extends Component {
     </div>
   )
 
+  renderBasedONApiStatus = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderRestaurantItemDetails()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoader()
+      default:
+        return null
+    }
+  }
+
   render() {
-    const {isLoading} = this.state
     // console.log(restaurantData)
     return (
       <div className="restaurant-items-container">
-        {isLoading ? this.renderLoader() : this.renderRestaurantItemDetails()}
+        {this.renderBasedONApiStatus()}
       </div>
     )
   }
