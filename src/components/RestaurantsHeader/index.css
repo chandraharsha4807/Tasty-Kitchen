@@ -43,15 +43,8 @@
   width: 24px;
   height: 24px;
   color: #475569;
-  margin-top: 12px;
-  margin-right: 6px;
-}
-
-.sort-by {
-  color: #475569;
-  font-family: 'Roboto';
-  font-size: 16px;
-  font-weight: normal;
+  margin-top: 14px;
+  margin-right: 0px;
 }
 
 .sort-by-select {
@@ -71,6 +64,7 @@
   color: #7e858e;
   font-family: 'Roboto';
   font-size: 14px;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 767px) {

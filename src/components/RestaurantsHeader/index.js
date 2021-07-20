@@ -18,7 +18,6 @@ const RestaurantsHeader = props => {
 
       <div className="sort-by-container">
         <BsFilterLeft className="sort-by-icon" />
-        <h1 className="sort-by">Sort by</h1>
         <select
           className="sort-by-select"
           value={activeOptionId}

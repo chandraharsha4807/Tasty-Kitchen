@@ -9,6 +9,10 @@ import './index.css'
 
 const sortByOptions = [
   {
+    optionId: '',
+    displayText: 'Sort by',
+  },
+  {
     optionId: 'high',
     displayText: 'Highest',
   },
