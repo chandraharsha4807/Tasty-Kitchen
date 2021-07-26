@@ -15,7 +15,7 @@ specifiers:
   npm-run-all: 4.1.5
   prettier: 2.2.1
   react: 17.0.1
-  react-bootstrap: ^0.32.1
+  react-bootstrap: 0.32.1
   react-cookie: 4.0.3
   react-dom: 17.0.1
   react-icons: 4.2.0
@@ -31,7 +31,7 @@ dependencies:
   chalk: 4.1.0
   js-cookie: 2.2.1
   react: 17.0.1
-  react-bootstrap: 0.32.4_react-dom@17.0.1+react@17.0.1
+  react-bootstrap: 0.32.1_react-dom@17.0.1+react@17.0.1
   react-cookie: 4.0.3_react@17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.2.0_react@17.0.1
@@ -1473,14 +1473,6 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/runtime-corejs2/7.14.6:
-    resolution: {integrity: sha512-wICJNTtKkM0sB/Oip84Ul8W2lqMj/5eG5JsfgjfRnO69ucvSrwmVr2M2sS6ysV8s13EXwicEM0SuGRuFkvvbnQ==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      core-js: 2.6.12
-      regenerator-runtime: 0.13.7
-    dev: false
-
   /@babel/runtime-corejs3/7.14.7:
     resolution: {integrity: sha512-Wvzcw4mBYbTagyBVZpAJWI06auSIj033T/yNE0Zn1xcup83MieCddZA7ls3kme17L4NOGBrQ09Q+nKB41RLWBA==}
     engines: {node: '>=6.9.0'}
@@ -1499,6 +1491,13 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.7
+
+  /@babel/runtime/7.14.8:
+    resolution: {integrity: sha512-twj3L8Og5SaCRCErB4x4ajbvBIVV77CGeFglHpeg5WC5FF8TZzBWXtTJ4MqaD9QszLYTtr+IsaAL2rEUevb+eg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.9
+    dev: false
 
   /@babel/template/7.14.5:
     resolution: {integrity: sha512-6Z3Po85sfxRGachLULUhOmvAaOo7xCvqGQtxINai2mEGPFm6pQ4z5QInFnUrRpfoSV60BnjyF5F3c+15fxFV1g==}
@@ -3171,7 +3170,6 @@ packages:
     dependencies:
       core-js: 2.6.12
       regenerator-runtime: 0.11.1
-    dev: true
 
   /babylon/6.18.0:
     resolution: {integrity: sha512-q/UEjfGJ2Cm3oKV71DJz9d25TPnq5rhBVL2Q4fA5wcC3jcrdn7+SssEybFIxwAvvP+YCsCYNKughoF33GxgycQ==}
@@ -4558,7 +4556,7 @@ packages:
   /dom-helpers/3.4.0:
     resolution: {integrity: sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==}
     dependencies:
-      '@babel/runtime': 7.14.6
+      '@babel/runtime': 7.14.8
     dev: false
 
   /dom-serializer/0.2.2:
@@ -9641,13 +9639,13 @@ packages:
       whatwg-fetch: 3.6.2
     dev: true
 
-  /react-bootstrap/0.32.4_react-dom@17.0.1+react@17.0.1:
-    resolution: {integrity: sha512-xj+JfaPOvnvr3ow0aHC7Y3HaBKZNR1mm361hVxVzVX3fcdJNIrfiodbQ0m9nLBpNxiKG6FTU2lq/SbTDYT2vew==}
+  /react-bootstrap/0.32.1_react-dom@17.0.1+react@17.0.1:
+    resolution: {integrity: sha512-RbfzKUbsukWsToWqGHfCCyMFq9QQI0TznutdyxyJw6dih2NvIne25Mrssg8LZsprqtPpyQi8bN0L0Fx3fUsL8Q==}
     peerDependencies:
       react: ^0.14.9 || >=15.3.0
       react-dom: ^0.14.9 || >=15.3.0
     dependencies:
-      '@babel/runtime-corejs2': 7.14.6
+      babel-runtime: 6.26.0
       classnames: 2.3.1
       dom-helpers: 3.4.0
       invariant: 2.2.4
@@ -9659,7 +9657,7 @@ packages:
       react-overlays: 0.8.3_react-dom@17.0.1+react@17.0.1
       react-prop-types: 0.4.0_react@17.0.1
       react-transition-group: 2.9.0_react-dom@17.0.1+react@17.0.1
-      uncontrollable: 5.1.0_react@17.0.1
+      uncontrollable: 4.1.0_react@17.0.1
       warning: 3.0.0
     dev: false
 
@@ -10025,10 +10023,13 @@ packages:
 
   /regenerator-runtime/0.11.1:
     resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
-    dev: true
 
   /regenerator-runtime/0.13.7:
     resolution: {integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==}
+
+  /regenerator-runtime/0.13.9:
+    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: false
 
   /regenerator-transform/0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==}
@@ -11474,10 +11475,10 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
-  /uncontrollable/5.1.0_react@17.0.1:
-    resolution: {integrity: sha512-5FXYaFANKaafg4IVZXUNtGyzsnYEvqlr9wQ3WpZxFpEUxl29A3H6Q4G1Dnnorvq9TGOGATBApWR4YpLAh+F5hw==}
+  /uncontrollable/4.1.0_react@17.0.1:
+    resolution: {integrity: sha1-4DWCkSUuGGUiLZCTmxny9J+Bwak=}
     peerDependencies:
-      react: '>=15.0.0'
+      react: '>=0.11.0'
     dependencies:
       invariant: 2.2.4
       react: 17.0.1
